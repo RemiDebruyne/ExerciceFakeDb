@@ -1,0 +1,26 @@
+﻿@model List<Monkey>
+@{
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Monkey m) => m.Name)</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var monkey in Model)
+            {
+                <tr>
+                    <th scope="row">@monkey.Id</th>
+                    <td>@monkey.Name</td>
+                    <td><a class="btn btn-danger" asp-action="Delete" asp-route-id="@monkey.Id">X</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" asp-action="GenerateRandom">Ajouter un singe aléatoire</a>
