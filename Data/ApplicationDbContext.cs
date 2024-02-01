@@ -16,10 +16,10 @@ namespace ExerciceFakeDb.Data
 
         public DbSet<Monkey> Monkeys { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data source=(localdb)\\exerciceDB; Database=exerciceSinge;");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Data source=(localdb)\\exerciceDB; Database=exerciceSinge;");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

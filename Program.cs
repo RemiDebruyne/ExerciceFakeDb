@@ -1,12 +1,15 @@
 using ExerciceFakeDb.Data;
 using ExerciceFakeDb.Models;
 using ExerciceFakeDb.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ApplicationDbContext>();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 //builder.Services.AddSingleton<FakeDb>();
 builder.Services.AddScoped<MonkeyRepository>();
 builder.Services.AddScoped<MonkeyGenerator>();

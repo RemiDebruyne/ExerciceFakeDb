@@ -23,9 +23,9 @@ namespace ExerciceFakeDb.Controllers
         }
         public IActionResult Index()
         {
-            List<Monkey> monkeyList = Repository.GetAll();
+           
 
-            return View(monkeyList);
+            return View(Repository.GetAll());
         }
 
         public string Add()

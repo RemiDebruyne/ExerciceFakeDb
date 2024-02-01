@@ -4,7 +4,7 @@ using System.Reflection.Emit;
 
 namespace ExerciceFakeDb.Repositories
 {
-    public class MonkeyRepository : IMonkeyRepository
+    public class MonkeyRepository<> : IRepository<T>
     {
         public MonkeyGenerator Generator { get; set; }
         private readonly ApplicationDbContext _context;
@@ -15,13 +15,13 @@ namespace ExerciceFakeDb.Repositories
 
         }
 
-        public void Create(Monkey entity)
+        public void Create(T entity)
         {
             _context.Add(entity);
             _context.SaveChanges();
 
         }
-        public void Add(Monkey entity)
+        public void Add(T entity)
         {
 
             _context.Add(entity);
