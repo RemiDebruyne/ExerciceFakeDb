@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //builder.Services.AddSingleton<FakeDb>();
-builder.Services.AddScoped<MonkeyRepository>();
+builder.Services.AddScoped<IRepository<Monkey>, MonkeyRepository>();
 builder.Services.AddScoped<MonkeyGenerator>();
 
 var app = builder.Build();

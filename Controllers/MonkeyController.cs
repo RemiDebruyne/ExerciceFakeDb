@@ -15,10 +15,10 @@ namespace ExerciceFakeDb.Controllers
 
         public MonkeyGenerator Generator { get; set; }
 
-        public MonkeyController(MonkeyRepository repository, MonkeyGenerator generator)
+        public MonkeyController(IRepository<Monkey> repository, MonkeyGenerator generator)
         {
 
-            Repository = repository;
+            Repository = (MonkeyRepository?)repository;
             Generator = generator;
         }
         public IActionResult Index()
